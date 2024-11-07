@@ -6,13 +6,18 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.paint
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -51,9 +56,9 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun PostList(posts: List<PostResponse>) {
-    LazyColumn {
+    LazyColumn(modifier = Modifier.fillMaxSize().padding(16.dp)) {
         items(posts) { post ->
-            Text(text = post.title)
+            Text(text = post.title,)
         }
     }
 }
